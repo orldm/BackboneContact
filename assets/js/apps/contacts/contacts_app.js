@@ -10,6 +10,9 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
   var API = {
     listContacts: function() {
       ContactsApp.List.Controller.listContacts();
+    },
+    showContact: function() {
+      ContactsApp.Show.Controller.showContact(id);
     }
   };
 
