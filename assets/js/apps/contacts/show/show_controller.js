@@ -2,7 +2,11 @@ ContactManager.module('ContactsApp.Show', function(Show, ContactManager, Backbon
 
   Show.Controller = {
     showContact: function(model) {
-      console.log('show contact');
+      var contactView = new Show.Contact({
+        model: model
+      });
+
+      ContactManager.mainRegion.show(contactView);
     }
   }
 
