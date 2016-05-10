@@ -93,23 +93,25 @@
 
     ContactManager.on('start', function(){
 
-      var contacts = new ContactManager.Entities.ContactCollection([
-        {
-          firstName: 'Bob',
-          lastName: 'Brigham',
-          phoneNumber: '222-222'
-        },
-        {
-          firstName: 'Alice',
-          lastName: 'Arten',
-          phoneNumber: '333-333'
-        },
-        {
-          firstName: 'Charlie',
-          lastName: 'Campbell',
-          phoneNumber: '444-444'
-        }
-      ]);
+      var contacts = ContactManager.request('contact:entities');
+
+      // var contacts = new ContactManager.Entities.ContactCollection([
+      //   {
+      //     firstName: 'Bob',
+      //     lastName: 'Brigham',
+      //     phoneNumber: '222-222'
+      //   },
+      //   {
+      //     firstName: 'Alice',
+      //     lastName: 'Arten',
+      //     phoneNumber: '333-333'
+      //   },
+      //   {
+      //     firstName: 'Charlie',
+      //     lastName: 'Campbell',
+      //     phoneNumber: '444-444'
+      //   }
+      // ]);
 
       // var alice = new ContactManager.Contact({
       //   firstName: 'Alice',
