@@ -16,6 +16,9 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       e.stopPropagation();
       // this.model.collection.remove(this.model);
       this.trigger('contact:delete', this.model);
+    },
+    remove: function() {
+      this.$el.fadeOut();
     }
   });
 
