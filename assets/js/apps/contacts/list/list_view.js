@@ -5,9 +5,11 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     template: '#contact-list-item'
   });
 
-  List.Contacts = Marionette.CollectionView.extend({
+  List.Contacts = Marionette.CompositeView.extend({
     tagName: 'table',
     className: 'table table-hover',
-    childView: List.Contact
+    template: '#contact-list',
+    childView: List.Contact,
+    childViewContainer: 'tbody'
   });
 });
