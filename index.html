@@ -69,31 +69,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.5/backbone.marionette.min.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/entities/contact.js"></script>
+    <script src="./assets/js/apps/contacts/list/list_view.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
 
 
 
-    ContactManager.ContactItemView = Marionette.ItemView.extend({
-      tagName: 'li',
-      template: '#contact-list-item'
-      // events: {
-      //   'click li':'alertPhoneNumber'
-      // },
-      // alertPhoneNumber: function() {
-      //   alert(this.model.escape('phoneNumber'));
-      // }
-    });
+    // ContactManager.ContactItemView = Marionette.ItemView.extend({
+    //   tagName: 'li',
+    //   template: '#contact-list-item'
+    //   // events: {
+    //   //   'click li':'alertPhoneNumber'
+    //   // },
+    //   // alertPhoneNumber: function() {
+    //   //   alert(this.model.escape('phoneNumber'));
+    //   // }
+    // });
 
-    ContactManager.ContactsView = Marionette.CollectionView.extend({
-      tagName: 'ul',
-      childView: ContactManager.ContactItemView
-    });
+    // ContactManager.ContactsView = Marionette.CollectionView.extend({
+    //   tagName: 'ul',
+    //   childView: ContactManager.ContactItemView
+    // });
 
     ContactManager.on('start', function(){
 
       var contacts = ContactManager.request('contact:entities');
+      var contactsListView = new ContactManager.ContactsApp.List.Contacts({
+        collection: contacts
+      });
 
       // var contacts = new ContactManager.Entities.ContactCollection([
       //   {
@@ -118,9 +122,9 @@
       //   lastName: 'Arten',
       //   phoneNumber: '333-333'
       // })
-      var contactsListView = new ContactManager.ContactsView({
-        collection: contacts
-      });
+      // var contactsListView = new ContactManager.ContactsView({
+      //   collection: contacts
+      // });
       ContactManager.mainRegion.show(contactsListView);
     });
     ContactManager.start();
