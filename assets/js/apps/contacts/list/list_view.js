@@ -5,12 +5,18 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     template: '#contact-list-item',
     events: {
       'click': 'highlightName',
+      'click td a.js-show': 'showClicked',
       'click button.js-delete': 'deleteClicked'
     },
     highlightName: function(e) {
       e.preventDefault();
       $('tr').removeClass('warning');
       this.$el.addClass('warning');
+    },
+    showClicked: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.trigger('contact:show', this.model);
     },
     deleteClicked: function(e) {
       e.stopPropagation();
