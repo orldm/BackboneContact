@@ -6,8 +6,10 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     events: {
       'click': 'highlightName'
     },
-    highlightName: function() {
-      this.$el.toggleClass('warning');
+    highlightName: function(e) {
+      e.preventDefault();
+      $('tr').removeClass('warning');
+      this.$el.addClass('warning');
     }
   });
 
