@@ -11,7 +11,7 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
     listContacts: function() {
       ContactsApp.List.Controller.listContacts();
     },
-    showContact: function() {
+    showContact: function(id) {
       ContactsApp.Show.Controller.showContact(id);
     }
   };
@@ -19,6 +19,11 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
   ContactManager.on('contacts:list', function() {
     ContactManager.navigate('contacts');
     API.listContacts();
+  });
+
+  ContactManager.on('contact:show', function(id) {
+    ContactManager.navigate('contacts/' + id);
+    API.showContact(id);
   });
 
   ContactManager.addInitializer(function() {
