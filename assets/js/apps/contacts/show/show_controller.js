@@ -2,12 +2,12 @@ ContactManager.module('ContactsApp.Show', function(Show, ContactManager, Backbon
 
   Show.Controller = {
     showContact: function(id) {
-      var contacts = ContactManager.request('contact:entities');
-      var model = contacts.get(id);
+      var contact = ContactManager.request('contact:entity', id);
+      // var model = contacts.get(id);
       var contactView;
-      if (model !== undefined) {
+      if (contact !== undefined) {
         contactView = new Show.Contact({
-          model: model
+          model: contact
         });
       } else {
         contactView = new Show.MissingContact();
